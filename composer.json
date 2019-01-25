@@ -22,7 +22,6 @@
     "php": "^7.1",
     "gone.io/appcore": "dev-master",
     "slim/slim": "^3.2",
-    "php-school/cli-menu": "^2.0.0",
     "zendframework/zend-db": "^2.7",
     "zeuxisoo/slim-whoops": "^0.5.0",
     "symfony/var-dumper": "^3.0",
