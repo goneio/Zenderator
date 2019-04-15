@@ -242,6 +242,13 @@ class Zenderator
 
         $config = file_get_contents($zenderatorConfigPath);
         $config = \Symfony\Component\Yaml\Yaml::parse($config);
+        $config = array_merge([
+            'templates' => [],
+            'formatting' => [],
+            'sql' => [],
+            'clean' => [],
+        ], $config);
+
         return $config;
     }
 
