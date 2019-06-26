@@ -198,10 +198,10 @@ class RelatedModel extends Entity
             ;
         }
         return $this->transCamel2Studly->transform(
-#               self::singulariseCamelCaseSentence(
+            #               self::singulariseCamelCaseSentence(
                 $this->getLocalClass()
-#               )
-            );
+            #               )
+        );
     }
 
     public function getRemoteFunctionName()
