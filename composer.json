@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": "^7.1",
-    "gone.io/appcore": "dev-master",
+    "gone.io/appcore": "*",
     "gone.io/testing": "^0.2",
     "slim/slim": "^3.2",
     "zendframework/zend-db": "^2.7",
