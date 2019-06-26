@@ -10,4 +10,6 @@ sql:
   - SQL
 clean:
   paths:
-  - "/vendor/segura/appcore"
+  - "/src"
+  - "/tests"
+  - "/public"

@@ -75,8 +75,8 @@ class Zenderator
         APP_ROOT . "/tests/Api/Generated",
         APP_ROOT . "/tests/Models/Generated",
         APP_ROOT . "/public/index.php",
-        APP_ROOT . "/vendor/segura/appcore",
-        APP_ROOT . "/vendor/segura/zenderator",
+        APP_ROOT . "/vendor/gone.io/appcore",
+        APP_ROOT . "/vendor/gone.io/zenderator",
     ];
     private $phpCsFixerRules = [
         '@PSR2' => true,
@@ -551,7 +551,7 @@ class Zenderator
     public function runSdkifier($sdkOutputPath = false, $remoteApiUri = false)
     {
         if (!$sdkOutputPath) {
-            $sdkOutputPath = APP_ROOT . "/vendor/segura/lib" . strtolower(APP_NAME) . "/";
+            $sdkOutputPath = APP_ROOT . "/vendor/gone.io/lib" . strtolower(APP_NAME) . "/";
             if (isset($this->config['sdk']) && isset($this->config['sdk']['output']) && isset($this->config['sdk']['output']['path'])) {
                 $sdkOutputPath = APP_ROOT . "/" . $this->config['sdk']['output']['path'];
             }

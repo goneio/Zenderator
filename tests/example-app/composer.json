@@ -38,7 +38,7 @@
   "autoload-dev": {
     "psr-4": {
       "VPN\\tests\\": "tests/",
-      "Zenderator\\Test\\": "vendor/segura/zenderator/tests/"
+      "Zenderator\\Test\\": "vendor/gone.io/zenderator/tests/"
     }
   }
 }

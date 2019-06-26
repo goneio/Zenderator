@@ -6,7 +6,7 @@ $rootOfApp = __DIR__ . "/../../../../";
 #require_once($rootOfApp . "/bootstrap.php");
 ini_set("memory_limit", "256M");
 
-$sdkOutputPath = isset($argv[1]) ? $argv[1] : APP_ROOT . "/vendor/segura/lib" . strtolower(APP_NAME) . "/";
+$sdkOutputPath = isset($argv[1]) ? $argv[1] : APP_ROOT . "/vendor/gone.io/lib" . strtolower(APP_NAME) . "/";
 $appName       = isset($argv[2]) ? $argv[2] : null;
 $remoteApiUri  = isset($argv[3]) ? $argv[3] : null;
 $namespace     = isset($argv[4]) ? $argv[4] : "Gone";
