@@ -6,26 +6,11 @@
       "email": "matthew@baggett.me"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url":  "git@github.com:segurasystems/LibZenderator.git"
-    },{
-      "type": "vcs",
-      "url":  "git@github.com:segurasystems/LibAppCore.git"
-    },{
-      "type": "vcs",
-      "url":  "git@github.com:segurasystems/automize.git"
-    },{
-      "type": "vcs",
-      "url":  "git@github.com:segurasystems/LibSessions.git"
-    }
-  ],
   "require": {
     "php": "^7.1",
-    "segura/appcore": "dev-master",
-    "segura/automize": "dev-master",
-    "segura/zenderator": "dev-master"
+    "gone.io/appcore": "dev-master",
+    "gone.io/automize": "dev-master",
+    "gone.io/zenderator": "dev-master"
   },
   "require-dev": {
 

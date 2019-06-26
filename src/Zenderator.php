@@ -56,9 +56,7 @@ class Zenderator
     private $transSnake2Spinal;
     /** @var CaseTransformer */
     private $transCamel2Snake;
-
-    private $vpnCheckUrl = "http://registry.segurasystems.com";
-
+    
     private $waitForKeypressEnabled = true;
 
     private $pathsToPSR2 = [
@@ -237,7 +235,7 @@ class Zenderator
         } elseif (file_exists($rootOfApp . "/zenderator.yml.dist")) {
             $zenderatorConfigPath = $rootOfApp . "/zenderator.yml.dist";
         } else {
-            die("Missing Zenderator config /zenderator.yml or /zenderator.yml.dist\nThere is an example in /vendor/bin/segura/zenderator/zenderator.example.yml\n\n");
+            die("Missing Zenderator config /zenderator.yml or /zenderator.yml.dist\nThere is an example in ./vendor/gone.io/zenderator/zenderator.example.yml\n\n");
         }
 
         $config = file_get_contents($zenderatorConfigPath);
@@ -404,27 +402,6 @@ class Zenderator
         return $returnCode;
     }
 
-    public function updateSeguraDependencies()
-    {
-        $composerJson = json_decode(file_get_contents(APP_ROOT . "/composer.json"), true);
-        $dependencies = array_merge($composerJson['require'], $composerJson['require-dev']);
-        $toUpdate     = [];
-        foreach ($dependencies as $dependency => $version) {
-            if (substr($dependency, 0, strlen("segura/")) == "segura/") {
-                $toUpdate[] = $dependency;
-            }
-        }
-        $begin = microtime(true);
-        echo "Updating Segura Composer Dependencies... \n";
-        foreach ($toUpdate as $item) {
-            echo " > {$item}\n";
-        }
-        exec("composer update " . implode(" ", $toUpdate));
-        $time = microtime(true) - $begin;
-        echo "\n[Complete in " . number_format($time, 2) . "]\n";
-        return $this;
-    }
-
     public function makeSDK($outputPath = APP_ROOT, $remoteApiUri = false, $cleanByDefault = true)
     {
         $this->makeSDKFiles($outputPath, $remoteApiUri);
@@ -440,21 +417,6 @@ class Zenderator
         if ($this->waitForKeypressEnabled) {
             echo "\n{$waitMessage}\n";
             return trim(fgets(fopen('php://stdin', 'r')));
-        }
-        return false;
-    }
-
-    public function vpnCheck()
-    {
-        $ch = curl_init($this->vpnCheckUrl);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $data     = curl_exec($ch);
-        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        if ($httpcode >= 200 && $httpcode < 300) {
-            return true;
         }
         return false;
     }
@@ -774,7 +736,7 @@ class Zenderator
             'app_namespace'    => APP_NAMESPACE,
             'app_name'         => APP_NAME,
             'app_container'    => APP_CORE_NAME,
-            'default_base_url' => strtolower("http://" . APP_NAME . ".segurasystems.test"),
+            'default_base_url' => strtolower("http://" . APP_NAME . ".local"),
             'release_time'     => date("Y-m-d H:i:s"),
         ];
 
