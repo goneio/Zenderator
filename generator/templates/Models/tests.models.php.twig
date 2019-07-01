@@ -17,22 +17,11 @@ class {{ class_name }}Test extends \Gone\AppCore\Test\BaseTestCase
     /** @var {{ class_name }}Model */
     protected $testInstance;
 
-    /** @var Model[] */
-    static private $cleanupList;
-
     public function setUp()
     {
         parent::setUp();
         $this->testTableGateway = $this->getDIContainer()->get({{ class_name }}TableGateway::class);
         $this->testInstance = $this->testTableGateway->getNewMockModelInstance();
-    }
-
-    public static function tearDownAfterClass()
-    {
-        foreach(self::$cleanupList as $model){
-            $model->destroy();
-        }
-        parent::tearDownAfterClass();
     }
 
     public function testExchangeArray()
@@ -80,8 +69,6 @@ class {{ class_name }}Test extends \Gone\AppCore\Test\BaseTestCase
         );
 
         $new{{ remote_object.getLocalModelName }}->save();
-
-        self::$cleanupList[] = $new;
 
         return $new{{ remote_object.getLocalModelName }};
     }
