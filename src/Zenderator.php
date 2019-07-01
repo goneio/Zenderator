@@ -3,13 +3,13 @@ namespace Zenderator;
 
 use Camel\CaseTransformer;
 use Camel\Format;
+use Gone\AppCore\App;
+use Gone\AppCore\DbConfig;
+use Gone\AppCore\Router\Router;
 use Gone\Twig\InflectionExtension;
 use Gone\Twig\TransformExtension;
 use GuzzleHttp\Client;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
-use Gone\AppCore\App;
-use Gone\AppCore\DbConfig;
-use Gone\AppCore\Router\Router;
 use Slim\Http\Environment;
 use Slim\Http\Headers;
 use Slim\Http\Request;
@@ -70,10 +70,19 @@ class Zenderator
         APP_ROOT . "/src/TableGateways/Base",
         APP_ROOT . "/src/TableGateways",
         APP_ROOT . "/src/*.php",
-        APP_ROOT . "/tests/Api/Generated",
-        APP_ROOT . "/tests/Models/Generated",
+        APP_ROOT . "/tests/Api",
+        APP_ROOT . "/tests/Controllers",
+        APP_ROOT . "/tests/Models",
+        APP_ROOT . "/tests/Services",
         APP_ROOT . "/public/index.php",
         APP_ROOT . "/vendor/gone.io/appcore",
+        APP_ROOT . "/vendor/gone.io/automize",
+        APP_ROOT . "/vendor/gone.io/inflection",
+        APP_ROOT . "/vendor/gone.io/sessions",
+        APP_ROOT . "/vendor/gone.io/testing",
+        APP_ROOT . "/vendor/gone.io/twig-extension-inflection",
+        APP_ROOT . "/vendor/gone.io/twig-extension-transform",
+        APP_ROOT . "/vendor/gone.io/uuid",
         APP_ROOT . "/vendor/gone.io/zenderator",
     ];
     private $phpCsFixerRules = [
